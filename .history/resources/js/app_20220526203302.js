@@ -15,11 +15,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter)
 
 // end 
-//  requring rotes
-const router = new VueRouter({
-    mode: 'history',
-    routes: routes
-});
+
 
 
 /**

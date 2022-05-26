@@ -6,21 +6,11 @@
 
 require('./bootstrap');
 
-import { routes } from './routes';
-
 window.Vue = require('vue').default;
 
-// requiring vue router 
+
 import VueRouter from 'vue-router';
 Vue.use(VueRouter)
-
-// end 
-//  requring rotes
-const router = new VueRouter({
-    mode: 'history',
-    routes: routes
-});
-
 
 /**
  * The following block of code may be used to automatically register your
@@ -43,5 +33,4 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
-    router: router,
 });

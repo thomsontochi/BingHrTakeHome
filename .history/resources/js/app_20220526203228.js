@@ -6,7 +6,6 @@
 
 require('./bootstrap');
 
-import { routes } from './routes';
 
 window.Vue = require('vue').default;
 
@@ -15,13 +14,9 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter)
 
 // end 
-//  requring rotes
-const router = new VueRouter({
-    mode: 'history',
-    routes: routes
-});
 
 
+// 
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -43,5 +38,4 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
-    router: router,
 });
