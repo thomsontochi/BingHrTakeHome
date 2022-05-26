@@ -21,7 +21,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            // 'name' => $this->faker->name(),
+            'name' => $this->faker->name(),
             'employerid' =>  $this ->faker->unique()->randomNumber($nbDigits = 3, $strict = true),
             'firstname' => $this->faker->firstname(),
             'lastname' => $this->faker->lastname(),
@@ -30,16 +30,16 @@ class UserFactory extends Factory
             'role' => $this->faker->randomElement(['admin', 'user', 'Editor']),
             'username' => $this->faker->username(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'saread' => $this->faker->randomElement(['read', 'wrtie']),
-            'sawrite' => $this->faker->randomElement(['read', 'wrtie']),
-            'sadelete' => $this->faker->randomElement(['read', 'wrtie']),
-            'aread' => $this->faker->randomElement(['read', 'wrtie']),
-            'awrite' => $this->faker->randomElement(['read', 'wrtie']),
-            'adelete' => $this->faker->randomElement(['read', 'wrtie']),
-            'eread' => $this->faker->randomElement(['read', 'wrtie']),
-            'ewrite' => $this->faker->randomElement(['read', 'wrtie']),
-            'edelete' => $this->faker->randomElement(['read', 'wrtie']),
-            // 'email_verified_at' => now(),
+            'saread' => $this->faker->unique()->numberBetween(0, 12),
+            'sawrite' => $this->faker->unique()->numberBetween(0, 12),
+            'sadelete' => $this->faker->unique()->numberBetween(0, 12),
+            'aread' => $this->faker->unique()->numberBetween(0, 1),
+            'awrite' => $this->faker->awrite(),
+            'adelete' => $this->faker->adelete(),
+            'eread' => $this->faker->eread(),
+            'ewrite' => $this->faker->ewrite(),
+            'edelete' => $this->faker->edelete(),
+            'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ];
     }

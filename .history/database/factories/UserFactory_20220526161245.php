@@ -21,7 +21,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            // 'name' => $this->faker->name(),
+            'name' => $this->faker->name(),
             'employerid' =>  $this ->faker->unique()->randomNumber($nbDigits = 3, $strict = true),
             'firstname' => $this->faker->firstname(),
             'lastname' => $this->faker->lastname(),
@@ -38,8 +38,8 @@ class UserFactory extends Factory
             'adelete' => $this->faker->randomElement(['read', 'wrtie']),
             'eread' => $this->faker->randomElement(['read', 'wrtie']),
             'ewrite' => $this->faker->randomElement(['read', 'wrtie']),
-            'edelete' => $this->faker->randomElement(['read', 'wrtie']),
-            // 'email_verified_at' => now(),
+            'edelete' => $this->faker->edelete(),
+            'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ];
     }

@@ -1,20 +1,28 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace Database\Factories;
 
-return new class extends Migration
+use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ */
+class UserFactory extends Factory
 {
+
+    protected $model = User::class;
     /**
-     * Run the migrations.
+     * Define the model's default state.
      *
-     * @return void
+     * @return array<string, mixed>
      */
-    public function up()
+    public function definition()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
+        return [
+            'name' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
             $table->string('employerid', 255)->nullable();
             $table->string('firstname', 255)->nullable();
             $table->string('lastname', 255)->nullable();
@@ -32,18 +40,23 @@ return new class extends Migration
             $table->string('eread', 255)->nullable();
             $table->string('ewrite', 255)->nullable();
             $table->string('edelete', 500)->nullable();
-            $table->rememberToken();
-            $table->timestamps();
-        });
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ];
     }
 
     /**
-     * Reverse the migrations.
+     * Indicate that the model's email address should be unverified.
      *
-     * @return void
+     * @return static
      */
-    public function down()
+    public function unverified()
     {
-        Schema::dropIfExists('users');
+        return $this->state(function (array $attributes) {
+            return [
+                'email_verified_at' => null,
+            ];
+        });
     }
-};
+}

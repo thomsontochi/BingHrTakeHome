@@ -39,7 +39,7 @@ class UserFactory extends Factory
             'eread' => $this->faker->randomElement(['read', 'wrtie']),
             'ewrite' => $this->faker->randomElement(['read', 'wrtie']),
             'edelete' => $this->faker->randomElement(['read', 'wrtie']),
-            // 'email_verified_at' => now(),
+            'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ];
     }

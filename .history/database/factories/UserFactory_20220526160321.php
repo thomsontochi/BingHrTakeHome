@@ -21,25 +21,25 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            // 'name' => $this->faker->name(),
+            'name' => $this->faker->name(),
             'employerid' =>  $this ->faker->unique()->randomNumber($nbDigits = 3, $strict = true),
             'firstname' => $this->faker->firstname(),
             'lastname' => $this->faker->lastname(),
             'email' => $this->faker->unique()->safeEmail(),
             'phone' => $this->faker->numerify('###-###-####'),
-            'role' => $this->faker->randomElement(['admin', 'user', 'Editor']),
+            'role' => $this->faker->role(),  $faker->randomElement(['admin', 'user', 'Editor']),
             'username' => $this->faker->username(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'saread' => $this->faker->randomElement(['read', 'wrtie']),
-            'sawrite' => $this->faker->randomElement(['read', 'wrtie']),
-            'sadelete' => $this->faker->randomElement(['read', 'wrtie']),
-            'aread' => $this->faker->randomElement(['read', 'wrtie']),
-            'awrite' => $this->faker->randomElement(['read', 'wrtie']),
-            'adelete' => $this->faker->randomElement(['read', 'wrtie']),
-            'eread' => $this->faker->randomElement(['read', 'wrtie']),
-            'ewrite' => $this->faker->randomElement(['read', 'wrtie']),
-            'edelete' => $this->faker->randomElement(['read', 'wrtie']),
-            // 'email_verified_at' => now(),
+            'saread' => $this->faker->saread(),
+            'sawrite' => $this->faker->sawrite(),
+            'sadelete' => $this->faker->sadelete(),
+            'aread' => $this->faker->aread(),
+            'awrite' => $this->faker->awrite(),
+            'adelete' => $this->faker->adelete(),
+            'eread' => $this->faker->eread(),
+            'ewrite' => $this->faker->ewrite(),
+            'edelete' => $this->faker->edelete(),
+            'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ];
     }
